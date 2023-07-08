@@ -132,6 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 371717249}
+  - component: {fileID: 371717250}
   m_Layer: 0
   m_Name: ArrowHolder
   m_TagString: Untagged
@@ -155,6 +156,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &371717250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371717248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33ea3024b470e904f86d3e53802c67d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicTempo: 120
+  hasStarted: 0
 --- !u!1 &572537722
 GameObject:
   m_ObjectHideFlags: 0
@@ -572,7 +587,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1120720563}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 263, y: 117, z: 1.5584958}
+  m_LocalPosition: {x: 263, y: 435, z: 1.5584958}
   m_LocalScale: {x: 20, y: 20, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
