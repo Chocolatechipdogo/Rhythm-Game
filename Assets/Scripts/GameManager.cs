@@ -11,10 +11,12 @@ public class GameManager : MonoBehaviour
 
     public BeatScroller theBS;
 
+    public static GameManager theInstance;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        theInstance = this;  
     }
 
     // Update is called once per frame
@@ -30,5 +32,15 @@ public class GameManager : MonoBehaviour
                 theMusic.Play();
             }
         }
+    }
+
+    public void NoteHit()
+    {
+        Debug.Log("Hit on time");
+    }
+
+    public void NoteMissed()
+    {
+        Debug.Log("Missed Note");
     }
 }
