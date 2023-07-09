@@ -21,6 +21,8 @@ public class ArrowBehavior : MonoBehaviour
         if (Input.GetKeyDown(responseKey)) {
             if (canBePressed) {
                 gameObject.SetActive(false);
+
+                GameManager.theInstance.NoteHit();
             }
         }
     }
@@ -39,6 +41,8 @@ public class ArrowBehavior : MonoBehaviour
         if (other.tag == "Activator")
         {
             canBePressed = false;
+
+            GameManager.theInstance.NoteMissed();
         }
 
     }
