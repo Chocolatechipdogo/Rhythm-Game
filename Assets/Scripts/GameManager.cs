@@ -24,8 +24,18 @@ public class GameManager : MonoBehaviour
     // holds the amount the score needs to increase per note pressed
     public int scorePerNote;
 
+    //holds the muliplier the player has currently
+    public int currentMultiplier;
+    //keeps the tally of notes hit to activate the next multipier
+    public int multiplierTracker;
+    // record of the threshes that the note hit combo has to reach to get the muliplier to increase
+    public int[] comboThreshold;
 
     public Text scoreText;
+
+    public Text multiplierText;
+
+
   
 
     // Start is called before the first frame update
@@ -33,6 +43,10 @@ public class GameManager : MonoBehaviour
     {
         theInstance = this;
         scorePerNote = 100;
+        currentScore = 0;
+        scoreText.text = "Score: " + currentScore;
+        currentMultiplier = 1;
+
     }
 
     // Update is called once per frame
@@ -59,13 +73,36 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Hit on time");
 
-        currentScore += scorePerNote;
+        multiplierTracker++;
+        
+        if( multiplierTracker == comboThreshold[currentMultiplier - 1])
+        {
+            currentMultiplier++;
+            multiplierText.text = "Multiplier: x" + currentMultiplier;
+        }
+        else if(multiplierTracker == comboThreshold[currentMultiplier - 1])
+        {
+            currentMultiplier++;
+            multiplierText.text = "Multiplier: x" + currentMultiplier;
+        }
+        else if(multiplierTracker == comboThreshold[currentMultiplier - 1])
+        {
+            currentMultiplier ++;
+            multiplierText.text = "Multiplier: x" + currentMultiplier;
+        }
+
+        currentScore += scorePerNote * currentMultiplier;
         scoreText.text = "Score: " + currentScore;
+        //multiplierTracker++;
+        
     }
 
     // Function to be called when the note is missed
     public void NoteMissed()
     {
         Debug.Log("Missed Note");
+        multiplierTracker = 0;
+        currentMultiplier = 1;
+        multiplierText.text = "Multiplier: x" + currentMultiplier;
     }
 }
